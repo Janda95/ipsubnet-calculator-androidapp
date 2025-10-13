@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.jlrutilities.subnetapp.R;
 
+
 //** Creates and populates Ip adjusted dialog. */
 public class IpAdjustmentDialogFragment extends DialogFragment{
 
@@ -26,13 +27,16 @@ public class IpAdjustmentDialogFragment extends DialogFragment{
 
   IpAdjustmentDialogListener listener;
 
+
   //** Defines listener interface. */
   public interface IpAdjustmentDialogListener {
     public void onDialogPositiveClick(DialogFragment dialog, String ipAddress, String cidr);
     public void onDialogNegativeClick(DialogFragment dialog);
   }
 
+
   public IpAdjustmentDialogFragment(){}
+
 
   //** Populates fragment instance. */
   public static IpAdjustmentDialogFragment newInstance(String originalIp, String adjustedIp, String cidr) {
@@ -45,6 +49,7 @@ public class IpAdjustmentDialogFragment extends DialogFragment{
     fragment.setArguments(args);
     return fragment;
   }
+
 
   /** Attatches listener to context. */
   @Override
@@ -62,6 +67,7 @@ public class IpAdjustmentDialogFragment extends DialogFragment{
     }
   }
 
+
   /** Sets placeholder IP informatino. */
   @Override
   public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -71,6 +77,7 @@ public class IpAdjustmentDialogFragment extends DialogFragment{
     adjustedIp = args.getString(ADJ_IP_KEY);
     cidr = args.getString(CIDR_KEY);
   }
+
 
   /** Generates IP comparison for provided CIDR before intent switch. */
   @NonNull
@@ -110,8 +117,10 @@ public class IpAdjustmentDialogFragment extends DialogFragment{
     return alertDialog;
   }
 
+
   /** Returns CIDR. */
   public String getCidr() { return cidr; }
+
 
   /** Returns suggested adjusted IP based on CIDR provided */
   public String getAdjustedIp() { return adjustedIp; }

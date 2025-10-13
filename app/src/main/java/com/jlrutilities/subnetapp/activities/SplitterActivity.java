@@ -40,6 +40,7 @@ public class SplitterActivity extends AppCompatActivity {
   SwipeActionAdapter mAdapter;
   private boolean mTwoPane;
 
+
   //** Creates and populates view on creation, phone rotation, and 2 pane view with larger screen size devices*/
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -105,6 +106,7 @@ public class SplitterActivity extends AppCompatActivity {
     });
   }
 
+
   //** Inflate available menu options if present in view. */
   @Override
   public boolean onCreateOptionsMenu(Menu menu) {
@@ -112,12 +114,14 @@ public class SplitterActivity extends AppCompatActivity {
     return true;
   }
 
+
   //** Saves network tree state for photo rotation and returning to view. */
   @Override
   protected void onSaveInstanceState(Bundle savedInstanceState){
     super.onSaveInstanceState(savedInstanceState);
     savedInstanceState.putParcelable(MY_TREE, tree);
   }
+
 
   //** Finds parent node and removes all node branches and current node if applicable. */
   private void merge(){
@@ -144,6 +148,7 @@ public class SplitterActivity extends AppCompatActivity {
           Toast.LENGTH_SHORT).show();
     }
   }
+
 
   //** Splits current list item node to 2 subnet nodes and refreshes list. */
   private void split(){
@@ -182,6 +187,7 @@ public class SplitterActivity extends AppCompatActivity {
     }
   }
 
+
   //** Refreshes list using current available tree structure. */
   private void refreshList(){
     // Bottom Layer Nodes
@@ -215,6 +221,7 @@ public class SplitterActivity extends AppCompatActivity {
     setSwipeFunctionality();
   }
 
+
   //* Sets actions when swiping list items. */
   private void setSwipeFunctionality(){
     // Background colors during swiping animation
@@ -229,6 +236,7 @@ public class SplitterActivity extends AppCompatActivity {
         return false;
       }
 
+
       @Override
       public boolean shouldDismiss(int position, SwipeDirection direction) {
         switch (direction) {
@@ -242,6 +250,7 @@ public class SplitterActivity extends AppCompatActivity {
         }
         return false;
       }
+
 
       @Override
       public void onSwipe(int[] positionList, SwipeDirection[] directionList) {
@@ -265,6 +274,7 @@ public class SplitterActivity extends AppCompatActivity {
       }
     });
   }
+
 
   //** Provides help dialog. */
   public void displayHelpDialog(MenuItem item) {

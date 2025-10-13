@@ -1,22 +1,28 @@
 package com.jlrutilities.subnetapp.models;
 
+
 //** Subnet Calculator Logic and Operations */
 public class SubnetCalculator {
+
   public SubnetCalculator(){}
+
 
   //** Trims IP using cidr, setting numbers after cutoff to 0. */
   public String trimCidrIp(String binaryIp, int cidr){
     String binaryNum = binaryIp;
     StringBuilder builderBinaryNum = new StringBuilder(binaryNum);
 
+
     // Set binary substring to 0 after cidr
     for(int i = cidr; i < binaryNum.length(); i++){
       builderBinaryNum.setCharAt(i, '0');
     }
 
+
     binaryNum = builderBinaryNum.toString();
     return binaryNum;
   }
+
 
   //** Transitions IP String to Binary String. */
   public String ipFormatToBinary(String binaryIp){
@@ -34,6 +40,7 @@ public class SubnetCalculator {
     return binaryNum;
   }
 
+
   //** Transitions Binary String to IP String. */
   public String ipBinaryToFormat(String binaryIp){
     String[] arr = new String[4];
@@ -49,6 +56,7 @@ public class SubnetCalculator {
     return ipFormat;
   }
 
+
   //** Split Ip in String format. */
   public String ipSplit(String binaryIp, int cidr){
     // Assuming cidr is not 32
@@ -57,6 +65,7 @@ public class SubnetCalculator {
     String value = new String(splitOne);
     return value;
   }
+
 
   //**  Generates Subnet Mask String. */
   public String subnetMask(int cidr){
@@ -74,6 +83,7 @@ public class SubnetCalculator {
     theString = ipBinaryToFormat(theString);
     return theString;
   }
+
 
   //** Generates Broadcast Address String given IP and CIDR. */
   public String broadcastAddress(String binaryIp, int cidr){
@@ -93,6 +103,7 @@ public class SubnetCalculator {
     return end;
   }
 
+
   //** Calculates number of available hosts from CIDR. */
   public int numberOfHosts(int cidr) {
     int num = 32 - cidr;
@@ -106,6 +117,7 @@ public class SubnetCalculator {
       return usableHosts - 2;
     }
   }
+
 
   //** Generates String of full IP address range. */
   public String rangeOfAddresses(String binaryIp, int cidr) {
@@ -124,6 +136,7 @@ public class SubnetCalculator {
 
     return start + " - " + end;
   }
+
 
   //** Generates String of usable IP address range. */
   public String usableIpAddresses(String binaryIp, int cidr) {

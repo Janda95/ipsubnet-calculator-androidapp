@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 
 import com.jlrutilities.subnetapp.R;
 
+
 //** Creates help dialog fragment. */
 public class HelpDialogFragment extends DialogFragment {
 
   public HelpDialogFragment(){}
+
 
   @NonNull
   @Override

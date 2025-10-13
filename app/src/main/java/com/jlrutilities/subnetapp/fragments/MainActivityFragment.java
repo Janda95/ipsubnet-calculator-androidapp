@@ -8,9 +8,12 @@ import android.view.ViewGroup;
 
 import com.jlrutilities.subnetapp.R;
 
+
 //** Generates and provides main Activity Fragment  */
 public class MainActivityFragment extends Fragment {
+
   public MainActivityFragment() {}
+
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

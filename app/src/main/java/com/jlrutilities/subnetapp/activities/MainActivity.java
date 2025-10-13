@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     init();
   }
 
+
   //** Sets up reference tables and populates view. */
   private void init() {
     subnetCalc = new SubnetCalculator();
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     // Dialog Builder
     builder = new AlertDialog.Builder(MainActivity.this);
   }
+
 
   /** Transition to Splitter View. */
   public void subnetTransition(View view) {

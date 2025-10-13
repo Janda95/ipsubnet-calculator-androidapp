@@ -13,6 +13,7 @@ import com.jlrutilities.subnetapp.models.Node;
 public class DescriptionActivity extends AppCompatActivity {
   private static final String NODE_KEY = "node_key";
 
+
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);

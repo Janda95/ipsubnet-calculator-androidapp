@@ -3,18 +3,23 @@ package com.jlrutilities.subnetapp.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+
 public class BinaryTree implements Parcelable {
 
   private Node root;
   private int flag = 0;
 
+
   public BinaryTree(){ root = null; }
 
+
   public Node getRoot() { return root; }
+
 
   public void setRoot(int cidr, String ipBinary, String ipAddress, int numberOfHosts, String broadcastIp, String fullIpRange, String usableIpRange, String netmask) {
     root = new Node(cidr, ipBinary, ipAddress, numberOfHosts, broadcastIp, fullIpRange, usableIpRange, netmask);
   }
+
 
   //** Find Nth node starting with root. */
   private Node nthPreorderNode(Node node, int N) {
@@ -38,6 +43,7 @@ public class BinaryTree implements Parcelable {
     return null;
   }
 
+
   //** Calculates size of binary tree. */
   private void size(Node node) {
     if (node == null) { return; }
@@ -47,6 +53,7 @@ public class BinaryTree implements Parcelable {
     size(node.getLeft());
     size(node.getRight());
   }
+
 
   //** Calculates size of nodes with no children. */
   private void sizeBottomLayer(Node node){
@@ -61,6 +68,7 @@ public class BinaryTree implements Parcelable {
     sizeBottomLayer(node.getLeft());
     sizeBottomLayer(node.getRight());
   }
+
 
   //** Finds parent node of child node. */
   public Node findParent(Node node, Node child){
@@ -82,6 +90,7 @@ public class BinaryTree implements Parcelable {
     return null;
   }
 
+
   //** Sets child nodes to null up to relative root node. */
   public void merge(Node node){
     if (node == null) {
@@ -99,6 +108,7 @@ public class BinaryTree implements Parcelable {
     node.setChildrenNull();
   }
 
+
   //** Counts number of tree nodes. */
   public int size() {
     size(root);
@@ -107,6 +117,7 @@ public class BinaryTree implements Parcelable {
     return value;
   }
 
+
   //** Counts number of tree nodes w/o children. */
   public int sizeBottomLayer() {
     sizeBottomLayer(root);
@@ -114,6 +125,7 @@ public class BinaryTree implements Parcelable {
     flag = 0;
     return value;
   }
+
 
   //** Returns nthPreorderNode using preorder traversal from root node. */
   public Node nthPreorderNode(int N) {
@@ -128,16 +140,19 @@ public class BinaryTree implements Parcelable {
     return node;
   }
 
+
   //** Transcribes Binary Tree structure for saving and reloading during view transitions; */
   protected BinaryTree(Parcel in) {
     root = (Node) in.readValue(Node.class.getClassLoader());
     flag = in.readInt();
   }
 
+
   @Override
   public int describeContents() {
     return 0;
   }
+
 
   //** Writes base tree structure to Parcel. */
   @Override
@@ -146,6 +161,7 @@ public class BinaryTree implements Parcelable {
     dest.writeInt(flag);
   }
 
+
   //** Implements Parcel structure for Binary Tree. */
   @SuppressWarnings("unused")
   public static final Parcelable.Creator<BinaryTree> CREATOR = new Parcelable.Creator<BinaryTree>() {
@@ -153,6 +169,7 @@ public class BinaryTree implements Parcelable {
     public BinaryTree createFromParcel(Parcel in) {
       return new BinaryTree(in);
     }
+
 
     @Override
     public BinaryTree[] newArray(int size) {

@@ -24,7 +24,9 @@ public class DetailFragment extends Fragment {
   private TextView netmaskTv;
   private TextView broadcastTv;
 
+
   public DetailFragment() {}
+
 
   //** Generates detail fragment using parcelable node. */
   public static DetailFragment newInstance(Node node){
@@ -37,8 +39,10 @@ public class DetailFragment extends Fragment {
     return fragment;
   }
 
+
   @Override
   public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
+
 
   //** Sets text for fragment view items. */
   @Nullable
