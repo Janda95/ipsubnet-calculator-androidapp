@@ -15,29 +15,29 @@ import com.jlrutilities.subnetapp.R;
 //** Creates help dialog fragment. */
 public class HelpDialogFragment extends DialogFragment {
 
-  public HelpDialogFragment(){}
+    public HelpDialogFragment(){}
 
 
-  @NonNull
-  @Override
-  public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+    @NonNull
+    @Override
+    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
 
-    LayoutInflater inflater = requireActivity().getLayoutInflater();
+        LayoutInflater inflater = requireActivity().getLayoutInflater();
 
-    // Custom Dialog fragment used for persistence
-    AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
-    alertDialog.setView(inflater.inflate(R.layout.dialog_help, null));
+        // Custom Dialog fragment used for persistence
+        AlertDialog alertDialog = new AlertDialog.Builder(getActivity()).create();
+        alertDialog.setView(inflater.inflate(R.layout.dialog_help, null));
 
-    alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
-        (dialog, which) -> dialog.dismiss());
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                (dialog, which) -> dialog.dismiss());
 
-    alertDialog.setOnShowListener( new DialogInterface.OnShowListener() {
-      @Override
-      public void onShow(DialogInterface arg0) {
-        alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextSize(18);
-      }
-    });
+        alertDialog.setOnShowListener( new DialogInterface.OnShowListener() {
+            @Override
+            public void onShow(DialogInterface arg0) {
+                alertDialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextSize(18);
+            }
+        });
 
-    return alertDialog;
-  }
+        return alertDialog;
+    }
 }
