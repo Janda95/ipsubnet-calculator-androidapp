@@ -25,10 +25,17 @@ public class DetailFragment extends Fragment {
     private TextView broadcastTv;
 
 
-    public DetailFragment() {}
+    public DetailFragment() {
+        // Required empty public constructor
+    }
 
 
-    //** Generates detail fragment using parcelable node. */
+    /**
+     * Generates detail fragment using parcelable node.
+     *
+     * @param node The node to display details for
+     * @return A new instance of DetailFragment
+     */
     public static DetailFragment newInstance(Node node){
         Bundle args = new Bundle();
         args.putParcelable(NODE_KEY, node);
@@ -41,10 +48,14 @@ public class DetailFragment extends Fragment {
 
 
     @Override
-    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
 
-    //** Sets text for fragment view items. */
+    /**
+     * Sets text for fragment view items.
+     */
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

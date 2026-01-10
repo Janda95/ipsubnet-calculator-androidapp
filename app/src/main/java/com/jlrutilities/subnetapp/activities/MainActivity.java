@@ -45,7 +45,9 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     }
 
 
-    //** Sets up reference tables and populates view. */
+    /**
+     * Sets up reference tables and populates view.
+     */
     private void init() {
         subnetCalc = new SubnetCalculator();
 
@@ -70,7 +72,9 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     }
 
 
-    /** Transition to Splitter View. */
+    /**
+     * Transition to Splitter View.
+     */
     public void subnetTransition(View view) {
         String message = inputTextView.getText().toString();
         String[] ipArray = message.split("\\.");
@@ -106,15 +110,22 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     }
 
 
-    //** Reset input */
+    /**
+     * Resets input.
+     */
     public void clearInput(View view){
         inputTextView.setText("");
         spinner.setSelection(defaultNetmask);
     }
 
 
-    //** Validate provided IP is within expected parameters. */
-    private boolean isValidIp(String[] array) {
+    /**
+     * Validates provided IP is within expected parameters.
+     *
+     * @param IpArray The tokenized array
+     * @return Boolean confirmation of pass or fail
+     */
+    private boolean isValidIp(String[] IpArray) {
         // Number of Tokens
         if (array.length != 4) {
             showInvalidIpToast();
