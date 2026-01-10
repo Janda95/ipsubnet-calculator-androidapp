@@ -22,16 +22,16 @@ import com.jlrutilities.subnetapp.R;
 /** Creates and populates main entry point for application. */
 public class MainActivity extends AppCompatActivity implements IpAdjustmentDialogFragment.IpAdjustmentDialogListener {
 
-    SubnetCalculator subnetCalc;
-    EditText inputTextView;
-    Spinner spinner;
-    AlertDialog.Builder builder;
+    private SubnetCalculator subnetCalc;
+    private EditText inputTextView;
+    private Spinner spinner;
+    private AlertDialog.Builder builder;
     private int defaultNetmask;
 
     private ListView list;
-    String[] bitsArr;
-    String[] netmaskArr;
-    String[] hostsArr;
+    private String[] bitsArr;
+    private String[] netmaskArr;
+    private String[] hostsArr;
 
     protected static final String IP_STRING_MESSAGE = "com.example.IPSTRING.Message";
     protected static final String CIDR_NETMASK_MESSAGE = "com.example.NETMASK.Message";
@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
     private boolean isValidIp(String[] array) {
         // Number of Tokens
         if (array.length != 4) {
-            Toast.makeText(getApplicationContext(),"Invalid IP", Toast.LENGTH_SHORT).show();
+            showInvalidIpToast();
             return false;
         }
 
@@ -128,28 +128,32 @@ public class MainActivity extends AppCompatActivity implements IpAdjustmentDialo
                 intArray[i] = Integer.parseInt(array[i]);
 
             } catch (NumberFormatException nfe) {
-                Toast.makeText(getApplicationContext(),"Invalid IP", Toast.LENGTH_SHORT).show();
+                showInvalidIpToast();
                 return false;
             }
 
             // First Token of IP cannot be zero
             if (intArray[0] == 0) {
-                Toast.makeText(getApplicationContext(),"Invalid IP", Toast.LENGTH_SHORT).show();
+                showInvalidIpToast();
                 return false;
             }
 
             // Validate bounds
-            if ( intArray[i] >= 256 ) {
-                Toast.makeText(getApplicationContext(),"Invalid IP", Toast.LENGTH_SHORT).show();
-                return false;
-
-            } else if (intArray[i] < 0) {
-                Toast.makeText(getApplicationContext(),"Invalid IP", Toast.LENGTH_SHORT).show();
+            if ( intArray[i] >= 256 || intArray[i] < 0 ) {
+                showInvalidIpToast();
                 return false;
             }
         }
 
         return true;
+    }
+
+
+    /**
+     * Shows a toast message indicating invalid IP address.
+     */
+    private void showInvalidIpToast() {
+        Toast.makeText(getApplicationContext(), "Invalid IP", Toast.LENGTH_SHORT).show();
     }
 
 
